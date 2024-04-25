@@ -10,6 +10,7 @@ import Link from "next/link"
 
 const Navbar = () => {
 
+
   return (
     <div className="h-full flex items-center justify-between px-8 sm:px-12 md:px-16 lg:px-20 xl:px-48">
       {/*LOGO */}
@@ -21,16 +22,18 @@ const Navbar = () => {
       </div>
       {/*RESPONSIVE MENU */}
       <div>
-        <button className="w-10 h-8 flex flex-col justify-between">
-          <div className="w-10 h-1 bg-black rounded"></div>
-          <div className="w-10 h-1 bg-black rounded"></div>
-          <div className="w-10 h-1 bg-black rounded"></div>
+        <button className="w-10 h-8 flex flex-col justify-between z-50 relative">
+          <div className="w-10 h-1 bg-white rounded"></div>
+          <div className="w-10 h-1 bg-white rounded"></div>
+          <div className="w-10 h-1 bg-white rounded"></div>
         </button>
         {/* MENU LIST */}
-        <div className="">
-          {links.map(link=>(
-            <link href= {links.url}key={link.title}>{links.title}</link>
-          ))}
+        <div className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl">
+          {
+            links.map(link=>(
+              <Link href={link.url} key={link.title}>{link.title}</Link>
+            ))
+          }
         </div>
       </div>
     </div>
